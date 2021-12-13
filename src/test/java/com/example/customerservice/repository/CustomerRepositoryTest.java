@@ -7,7 +7,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.orm.jpa.DataJpaTest;
 import org.springframework.boot.test.autoconfigure.orm.jpa.TestEntityManager;
 
-@DataJpaTest
+@DataJpaTest(properties = {"spring.sql.init.mode=never","spring.flyway.enabled=false"})
 public class CustomerRepositoryTest {
 
     @Autowired

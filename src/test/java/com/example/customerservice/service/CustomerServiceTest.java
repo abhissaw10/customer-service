@@ -1,5 +1,7 @@
 package com.example.customerservice.service;
 
+import com.example.customerservice.CustomerMapper;
+import com.example.customerservice.CustomerMapperImpl;
 import com.example.customerservice.domain.Customer;
 import com.example.customerservice.dto.CustomerDto;
 import com.example.customerservice.exception.CustomerNotFoundException;
@@ -13,6 +15,7 @@ import org.mockito.Mock;
 import org.mockito.Mockito;
 import org.mockito.junit.MockitoJUnitRunner;
 import org.mockito.junit.jupiter.MockitoExtension;
+import org.springframework.context.annotation.Import;
 
 import java.util.Optional;
 
@@ -20,10 +23,14 @@ import static org.mockito.ArgumentMatchers.anyString;
 import static org.mockito.Mockito.*;
 
 @ExtendWith(MockitoExtension.class)
+@Import(CustomerMapperImpl.class)
 public class CustomerServiceTest {
 
     @InjectMocks
     CustomerService cut;
+
+    @Mock
+    CustomerMapper mapper;
 
     @Mock
     CustomerRepository customerRepository;
